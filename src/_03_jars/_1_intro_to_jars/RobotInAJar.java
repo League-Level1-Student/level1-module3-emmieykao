@@ -1,6 +1,8 @@
 package _03_jars._1_intro_to_jars;
 
-import java.awt.Robot;
+
+
+import org.jointheleague.graphical.robot.Robot;
 
 public class RobotInAJar {
 	
@@ -13,7 +15,7 @@ public class RobotInAJar {
 	
 	
 	/* 2.   Now declare a Robot variable and create a new Robot  */
-Robot robot=new Robot();
+	Robot robot = new Robot();
 	
 	/* Even if you did not make any syntax errors, there should be a red line under the word Robot.
 	 * This is because the type Robot is not part of the basic Java language. If you want to use 
@@ -59,7 +61,15 @@ Robot robot=new Robot();
 	
 	public void draw() {
 		/*** Write code to make your robot draw a shape here ****/
-		
-		
+		robot.penDown();
+		robot.setSpeed(50);
+		robot.move(100);
+		robot.turn(90);
+		robot.move(100);
+		robot.turn(90);
+		robot.move(100);
+		robot.turn(90);
+		robot.move(100);
+		robot.turn(90);
 	}
 }
