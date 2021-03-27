@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -25,12 +26,15 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
  *   Right click your project and add it as a JAR (Under Java Build Path > Libraries).*/
 
 public class Jukebox implements Runnable, ActionListener {
-
+	JFrame frame=new JFrame();
+	JPanel panel=new JPanel();
+	JButton spaceship=new JButton();
+	JButton dogbark=new JButton();
     public void run() {
 
 		// 1. Find an mp3 on your computer or on the Internet.
 		// 2. Create a Song object for that mp3
-    	Song song= new Song("https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiltPyF2r3vAhVEIjQIHYiSDkUQyCkwAHoECAIQAw&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMtN1YnoL46Q&usg=AOvVaw1x7VK3_LBj8OIUntmf9fv2");
+    	Song song= new Song("everywhere.mp3");
 		// 3. Play the Song
 song.play();
 		/*
@@ -40,13 +44,14 @@ song.play();
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
-JFrame frame=new JFrame();
-JButton button=new JButton();
-JLabel label=new JLabel();
-label.setText("random song");
-button.add(label);
-button.addActionListener(this);
-frame.add(button);
+
+spaceship.setText("spaceship");
+spaceship.addActionListener(this);
+dogbark.setText("dogbark");
+dogbark.addActionListener(this);
+panel.add(spaceship);
+panel.add(dogbark);
+frame.add(panel);
 frame.setVisible(true);
 frame.pack();
     }
@@ -62,10 +67,18 @@ frame.pack();
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		JButton buttonPressed = (JButton) e.getSource();
 		// TODO Auto-generated method stub
-    	Song song= new Song("https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiltPyF2r3vAhVEIjQIHYiSDkUQyCkwAHoECAIQAw&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMtN1YnoL46Q&usg=AOvVaw1x7VK3_LBj8OIUntmf9fv2");
+		if(buttonPressed.equals(spaceship)) {
+		//	System.out.println("everywheremp3");
+    	Song song= new Song("SoundBible.com Must Credit.mp3");
 		song.play();
 	}
+		if(buttonPressed.equals(dogbark)) {
+	//		System.out.println("freedownloadslastfmdownload569264057Get2BGotmp3");
+			Song song=new Song("labrador-barking-daniel_simon.mp3");
+			song.play();
+		}
 
 }
 
@@ -153,4 +166,4 @@ class Song {
 		}
 	}
 }
-
+}

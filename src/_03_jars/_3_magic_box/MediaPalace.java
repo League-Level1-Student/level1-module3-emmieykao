@@ -20,6 +20,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JApplet;
 import javax.swing.JLabel;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+
 public class MediaPalace {
 
 	 /*NOTE: To play mp3 files, you will need javazoom.jar in the build path. 
@@ -55,23 +58,23 @@ public class MediaPalace {
 	 * Only uncomment this method if you have javazoom.jar in the build path.
 	 */
 	
-	// private void playMp3FromComputer(String fileName) throws JavaLayerException {
-	// FileInputStream songStream = new FileInputStream(fileName);
-	//
-	// final Player playMp3 = new Player(songStream);
-	//
-	// Thread t = new Thread() {
-	// public void run() {
-	// try {
-	// playMp3.play();
-	// } catch (JavaLayerException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	// }
-	// };
-	// t.start();
-	// }
+	 private void playMp3FromComputer(String fileName) throws JavaLayerException {
+	 FileInputStream songStream = new FileInputStream(fileName);
+
+	 final Player playMp3 = new Player(songStream);
+	
+	 Thread t = new Thread() {
+	 public void run() {
+	 try {
+	 playMp3.play();
+	 } catch (JavaLayerException e) {
+	 // TODO Auto-generated catch block
+	 e.printStackTrace();
+	 }
+	 }
+	 };
+	 t.start();
+	 }
 
 	/* This method will use your default mp3 player to play the song */
 	public void playMusicOnComputer(String fileName) {
