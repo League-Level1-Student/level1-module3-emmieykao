@@ -8,6 +8,8 @@ package _03_jars._3_magic_box;
 
 import java.applet.AudioClip;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,13 +32,13 @@ public class MediaPalace {
 	 *    Right click the project and add it as a JAR (Under Java Build Path > Libraries).
 	 */     
 	
-	
-	public JLabel loadImageFromTheInternet(String imageURL) throws MalformedURLException {
+		
+	static public JLabel loadImageFromTheInternet(String imageURL) throws MalformedURLException {
 		URL url = new URL(imageURL);
 		Icon icon = new ImageIcon(url);
 		return new JLabel(icon);
-	}
-
+	}	
+																					
 	/*
 	 * To use this method, the image must be placed in your Eclipse project in the same package as this class.
 	 */
@@ -48,7 +50,7 @@ public class MediaPalace {
 
 	/*
 	 * To use this method, pass in the full path of the image.
-	 */
+	 */					 	
 	public JLabel loadImageFromHardDrive(String filePath) {
 		Icon icon = new ImageIcon(filePath);
 		return new JLabel(icon);
@@ -58,7 +60,7 @@ public class MediaPalace {
 	 * Only uncomment this method if you have javazoom.jar in the build path.
 	 */
 	
-	 private void playMp3FromComputer(String fileName) throws JavaLayerException {
+	 private void playMp3FromComputer(String fileName) throws JavaLayerException, FileNotFoundException {
 	 FileInputStream songStream = new FileInputStream(fileName);
 
 	 final Player playMp3 = new Player(songStream);
