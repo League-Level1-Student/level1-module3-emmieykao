@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.Random;
 
 import info.gridworld.actor.Bug;
+import info.gridworld.actor.Flower;
 import info.gridworld.grid.Location;
 import info.gridworld.world.World;
 
@@ -38,7 +39,35 @@ public static void main(String[] args) {
 	Location location2=new Location(x,y);
 	Bug bug2=new Bug();
 	bug2.setColor(Color.blue);
+	bug2.turn();
+	bug2.turn();
 	world.add(location2, bug2);
+	/*Flower flower1=new Flower();
+	Location location3=new Location(x,y+1);
+	world.add(location3, flower1);
+	Flower flower2=new Flower();
+	Location location4=new Location(x,y-1);
+	world.add(location4, flower2);*/
+	
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			Flower flower=new Flower();
+			Location location=new Location(i,j);
+			if(i%2==0) {
+				flower.setColor(Color.red);
+			}
+			else {
+				flower.setColor(Color.white);
+			}
+			if(i==x&&j==y) {
+			}
+			else {
+				world.add(location, flower);
+			}
+			
+		}
+		
+	}
 }	
 
 	
